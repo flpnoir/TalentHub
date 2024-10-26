@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//Andrew to build structure
 struct Student {
 
 	string firstName;
