@@ -16,6 +16,76 @@ struct Student {
 	string password;
 	string course[3];
 
+	void studentInfo() {
+
+		cout << "*************************************************" << endl;
+		cout << "First Name:     " << firstName << endl;
+		cout << "Last Name:      " << lastName << endl;
+		cout << "Your Age:       " << age << endl;
+		cout << "Your Email:     " << email << endl;
+		cout << "Your Number:    " << phoneNum << endl;
+		cout << "Your Address:   " << homeAddr << endl;
+		cout << "Nationality :   " << nationality << endl;
+		cout << "Current Course1:" << course[0] << endl;
+		cout << "Current Course2:" << course[1] << endl;
+		cout << "Current Course3:" << course[2] << endl;
+		cout << "*************************************************" << endl;
+	}
+
+	void courseInfo() {
+		string choice;
+		int option;
+		int i = 0;
+		do {
+			cout << "Do you want to add new course? Yes/No" << endl;
+			cin >> choice;
+			if (choice =="yes") {
+			
+				cout << "1.CISCO" << endl;
+				cout << "2.Microsoft certification" << endl;
+				cout << "3.program 1" << endl;
+				cout << "4.program 2" << endl;
+				cout << "5.program 3" << endl;
+				cout << "6.program 4" << endl;
+				cout << "7.program 5" << endl;
+				cout << "8.program 6" << endl;
+			
+				cin >> option;
+
+				if (option == 1) {
+					course[i] = "CISCO";
+				}
+				else if (option == 2) {
+					course[i] = "Microsoft certification";
+				}
+				else if (option == 3) {
+					course[i] = "program 1";
+				}
+				else if (option == 4) {
+					course[i] = "program 2";
+				}
+				else if (option == 5) {
+					course[i] = "program 3";
+				}
+				else if (option == 6) {
+					course[i] = "program 4";
+				}
+				else if (option == 7) {
+					course[i] = "program 5";
+				}
+				else if (option == 8) {
+					course[i] = "program 6";
+				}
+				else {
+					cout << "Wrong option, Please try again!" << endl;
+				}
+				i++;
+			}
+		} while (i<3 && choice !="no");
+
+		cout << "Thank you. See you later!!!" << endl;
+	}
+
 };
 
 int main() {
