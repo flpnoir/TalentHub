@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//Andrew to build structure
+//Andrew code task------to build structure
 struct Student {
 
 	string firstName;
@@ -100,16 +100,16 @@ int main() {
 	cout << "2.Admin Login" << endl;
 	cout << "3.Register as New Student" << endl;
 
-// Student login----Andrew
+// Student login----Andrew code task
 if(option ==1){
 
 }
 
-// Admin Login-----Pearl 
+// Admin Login-----Pearl code task
 else if(option == 2){
 
 }
-//Student Registration page-----Felipe
+//Student Registration page-----Felipe code task
 else if(option ==3){
 
 }else{
