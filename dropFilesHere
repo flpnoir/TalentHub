@@ -29,16 +29,16 @@ int main() {
 	cout << "2.Admin Login" << endl;
 	cout << "3.Register as New Student" << endl;
 
-// Student login
+// Student login----Andrew
 if(option ==1){
 
 }
 
-// Admin Login
+// Admin Login-----Pearl 
 else if(option == 2){
 
 }
-//Student Registration page
+//Student Registration page-----Felipe
 else if(option ==3){
 
 }else{
