@@ -1,1 +1,45 @@
-// :D
+#include<iostream>
+#include<string>
+#include<array>
+
+using namespace std;
+
+struct Student {
+
+	string firstName;
+	string lastName;
+	int age = 0;
+	string email;
+	int phoneNum = 0;
+	string homeAddr;
+	string nationality;
+	string password;
+	string course[3];
+
+};
+
+int main() {
+
+  string ;
+  int option;
+
+	cout << "Talent Hub" << endl;
+	cout << "**************************" << endl;
+	cout << "1.Student Login" << endl;
+	cout << "2.Admin Login" << endl;
+	cout << "3.Register as New Student" << endl;
+
+if(option ==1){
+
+}else if(option == 2){
+
+}else if(option ==3){
+
+}else{
+
+cout<<"Good Bye!!!"<< endl;
+}
+
+
+return 0;
+}
