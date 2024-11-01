@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<array>
+#include <limits>
 
 using namespace std;
 
@@ -91,8 +92,12 @@ struct Student {
 
 int main() {
 
-  string ;
-  int option;
+Student students[MAX_STUDENTS];  // store students
+int studentCount = 0;            // counter for registered students
+ int option;
+string mail1, loginpass;
+
+begin:
 
 	cout << "Talent Hub" << endl;
 	cout << "**************************" << endl;
@@ -102,6 +107,32 @@ int main() {
 
 // Student login----Andrew code task
 if(option ==1){
+
+		// Student login page
+
+		cout << "Student Login Page" << endl;
+		cout << "**************************" << endl;
+
+
+		cout << "Your Login Email Address: " << endl;
+		cin >> email1;
+
+		cout << "Loging Password" << endl;
+		cin >> loginpass;
+		//matching student email address to login
+
+		for (int i = 0; i < size;i++) {
+			if (email1 == student[i].email && loginpass == student[i].password) {
+				student[i].studentInfo();		
+			//Check with user whether they like to add their first cours}
+				student[i].courseInfo();
+				goto begin;
+			}
+			else {
+				cout << "No Email found in the system, try again!!!" << endl;
+				goto begin;
+				}
+			}
 
 }
 
