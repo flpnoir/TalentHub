@@ -109,14 +109,70 @@ if(option ==1){
 else if(option == 2){
 
 }
-//Student Registration page-----Felipe code task
-else if(option ==3){
+// Student Registration page-----Felipe code task
+    /* insert #include <limits> at top **********************
+     insert this under main function************
+      Student students[MAX_STUDENTS];  // store students
+    int studentCount = 0;            // counter for registered students
+    *********************************************************
+*/
+    else if (option == 3) {
+        if (studentCount < MAX_STUDENTS) {
+            Student newStudent;
+            cout << "First name: ";
+            cin >> newStudent.firstName;
+            cout << "Last name: ";
+            cin >> newStudent.lastName;
+            cout << "Age: ";
+            cin >> newStudent.age;
+            cout << "Email: ";
+            cin >> newStudent.email;
+            cout << "Phone number: ";
+            cin >> newStudent.phoneNum;
+            cout << "Home address: ";
+            cin >> newStudent.homeAddr;
 
-}else{
+            // nationality with validation
+            int nationalityOp;
+            bool validInput = false;
+            do {
+                cout << "Press 1 for Domestic or 2 for International: ";
+                cin >> nationalityOp;
 
-cout<<"Good Bye!!!"<< endl;
-}
+                if (cin.fail() || (nationalityOp != 1 && nationalityOp != 2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid option. Please enter 1 for Domestic or 2 for International." << endl;
+                } else {
+                    switch (nationalityOp) {
+                        case 1:
+                            newStudent.nationality = "Domestic";
+                            validInput = true;
+                            cout << "Option selected: Domestic" << endl;
+                            break;
+                        case 2:
+                            newStudent.nationality = "International";
+                            validInput = true;
+                            cout << "Option selected: International" << endl;
+                            break;
+                    }
+                }
+            } while (!validInput);
 
+            // password after valid nationality
+            cout << "Choose your Password: ";
+            cin >> newStudent.password;
 
-return 0;
+            students[studentCount] = newStudent; // Add new student
+            studentCount++; // ++ student count
+            cout << "Registration successful!" << endl;
+        } else {
+            cout << "Cannot register any more students." << endl;
+        }
+    }
+    else {
+        cout << "Good Bye!!!" << endl;
+    }
+
+    return 0;
 }
