@@ -2,6 +2,7 @@
 #include<string>
 #include<array>
 #include <limits>
+#include<vector>
 
 using namespace std;
 
@@ -94,7 +95,7 @@ int main() {
 
 	string email1, loginpass;;
 	int option;
-	Student students[MAX_STUDENTS];  // store students
+	vector<Student>students;  // store students
 	int studentCount = 0;     // counter for registered students
 
 begin:
@@ -147,7 +148,7 @@ else if(option == 2){
     *********************************************************
 */
     else if (option == 3) {
-        if (studentCount < MAX_STUDENTS) {
+     
             Student newStudent;
             cout << "First name: ";
             cin >> newStudent.firstName;
@@ -196,9 +197,7 @@ else if(option == 2){
             students[studentCount] = newStudent; // Add new student
             studentCount++; // ++ student count
             cout << "Registration successful!" << endl;
-        } else {
-            cout << "Cannot register any more students." << endl;
-        }
+
     }
     else {
         cout << "Good Bye!!!" << endl;
