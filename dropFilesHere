@@ -107,35 +107,43 @@ begin:
 	cout << "3.Register as New Student" << endl;
 
 	// Student login----Andrew code task
-	if (option == 1) {
-		// Student login page
+if (option == 1) {
+	// Student login page
 
-		cout << "Student Login Page" << endl;
-		cout << "**************************" << endl;
+	cout << "Student Login Page" << endl;
+	cout << "**************************" << endl;
 
+	//matching student email address to login
+		
 
-		cout << "Your Login Email Address: " << endl;
-		cin >> email1;
+	for (int i = 0; i <= student.size();i++) {
+		int j = 0;
 
-		cout << "Loging Password" << endl;
-		cin >> loginpass;
-		//matching student email address to login
+		do
+		{			 
+			cout << "Your Login Email Address: " << endl;
+			cin >> logEmail;
 
-		for (int i = 0; i < studentCount;i++) {
-			if (email1 == students[i].email && loginpass == students[i].password) {
-				students[i].studentInfo();
-				//Check with user whether they like to add their first cours}
-				students[i].courseInfo();
+			cout << "Loging Password" << endl;
+			cin >> loginPass;
+
+			if (logEmail == student[i].email && loginPass == student[i].password) {
+
+				student[i].studentInfo();
+				//Check with user whether they like to add their first cours
+				student[i].courseInfo();
 				goto begin;
 			}
 			else {
-				cout << "No Email found in the system, try again!!!" << endl;
-				goto begin;
+			// After 1st time wrong input, will give 3 times for student to try. 
+				cout << "Wrong email, you have "<< 3-j<<" times left" << endl;
 			}
-		}
-
+			j++;
+		} while (j<4);
 
 	}
+
+}
 // Admin Login-----Pearl code task
 else if(option == 2){
 
