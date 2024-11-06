@@ -96,7 +96,6 @@ int main() {
 	string email1, loginpass;;
 	int option;
 	vector<Student>students;  // store students
-	int studentCount = 0;     // counter for registered students
 
 begin:
 
@@ -203,7 +202,6 @@ else if(option == 2){
             cin >> newStudent.password;
 
             students[studentCount] = newStudent; // Add new student
-            studentCount++; // ++ student count
             cout << "Registration successful!" << endl;
 
     }
