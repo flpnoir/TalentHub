@@ -42,8 +42,8 @@ struct Student {
 		do {
 			cout << "Do you want to add new course? Yes/No" << endl;
 			cin >> choice;
-			if (choice =="yes") {
-			
+			if (choice == "yes") {
+
 				cout << "1.CISCO" << endl;
 				cout << "2.Microsoft certification" << endl;
 				cout << "3.program 1" << endl;
@@ -52,7 +52,7 @@ struct Student {
 				cout << "6.program 4" << endl;
 				cout << "7.program 5" << endl;
 				cout << "8.program 6" << endl;
-			
+
 				cin >> option;
 
 				if (option == 1) {
@@ -84,18 +84,21 @@ struct Student {
 				}
 				i++;
 			}
-		} while (i<3 && choice !="no");
+		} while (i < 3 && choice != "no");
 
 		cout << "Thank you. See you later!!!" << endl;
 	}
 
 };
 
+void backToMenu();
+
 int main() {
 
-	string email1, loginpass;;
+	string password1, password2, logEmail, loginPass, choice;
 	int option;
-	vector<Student>students;  // store students
+
+	vector<Student>students;
 
 begin:
 
@@ -105,109 +108,157 @@ begin:
 	cout << "2.Admin Login" << endl;
 	cout << "3.Register as New Student" << endl;
 
+	cin >> option;
 	// Student login----Andrew code task
-if (option == 1) {
-	// Student login page
+	if (option == 1) {
+		// Student login page
 
-	cout << "Student Login Page" << endl;
-	cout << "**************************" << endl;
+		cout << "Student Login Page" << endl;
+		cout << "**************************" << endl;
 
-	//matching student email address to login
-		
+		//matching student email address to login
 
-	for (int i = 0; i <= student.size();i++) {
-		int j = 0;
 
-		do
-		{			 
-			cout << "Your Login Email Address: " << endl;
-			cin >> logEmail;
+		for (int i = 0; i <= students.size();i++) {
+			int j = 0;
 
-			cout << "Loging Password" << endl;
-			cin >> loginPass;
+			do
+			{
+				cout << "Your Login Email Address: " << endl;
+				cin >> logEmail;
 
-			if (logEmail == student[i].email && loginPass == student[i].password) {
+				cout << "Loging Password" << endl;
+				cin >> loginPass;
 
-				student[i].studentInfo();
-				//Check with user whether they like to add their first cours
-				student[i].courseInfo();
-				goto begin;
-			}
-			else {
-			// After 1st time wrong input, will give 3 times for student to try. 
-				cout << "Wrong email, you have "<< 3-j<<" times left" << endl;
-			}
-			j++;
-		} while (j<4);
+				if (logEmail == students[i].email && loginPass == students[i].password) {
+
+					students[i].studentInfo();
+					//Check with user whether they like to add their first cours
+					students[i].courseInfo();
+					goto begin;
+				}
+				else {
+					// After 1st time wrong input, will give 3 times for student to try. 
+					cout << "Wrong email or password, you have " << 3 - j << " times left" << endl;
+				}
+				j++;
+			} while (j < 4);
+
+		}
 
 	}
 
+	// Admin Login-----Pearl code task
+	else if (option == 2) {
+
+	}
+
+
+	// Student Registration page-----Felipe code task
+		/* insert #include <limits> at top **********************
+		 insert this under main function************
+		  Student students[MAX_STUDENTS];  // store students
+		int studentCount = 0;            // counter for registered students
+		*********************************************************
+	*/
+	else if (option == 3) {
+		
+			Student newStudent;
+
+			cout << "First name: ";
+			cin >> newStudent.firstName;
+
+			cout << "Last name: ";
+			cin >> newStudent.lastName;
+
+			cout << "Age: ";
+			cin >> newStudent.age;
+
+			cout << "Email: ";
+			cin >> newStudent.email;
+
+			cout << "Phone number: ";
+			cin >> newStudent.phoneNum;
+
+			cin.ignore();
+			cout << "Home Address : " << endl;
+			getline(cin, newStudent.homeAddr);
+
+			// nationality with validation
+			int nationalityOp;
+			bool validInput = false;
+			do {
+				cout << "Press 1 for Domestic or 2 for International: ";
+				cin >> nationalityOp;
+
+				if (cin.fail() || (nationalityOp != 1 && nationalityOp != 2)) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Invalid option. Please enter 1 for Domestic or 2 for International." << endl;
+				}
+				else {
+					switch (nationalityOp) {
+					case 1:
+						newStudent.nationality = "Domestic";
+						validInput = true;
+						cout << "Option selected: Domestic" << endl;
+						break;
+					case 2:
+						newStudent.nationality = "International";
+						validInput = true;
+						cout << "Option selected: International" << endl;
+						break;
+					}
+				}
+			} while (!validInput);
+
+			// password after valid nationality
+			// Student Setting up password
+			do {
+				cout << "Setting Password: " << endl;
+				cin >> password1;
+
+				cout << "Enter Password Again: " << endl;
+				cin >> password2;
+
+				if (password1 == password2) {
+
+					newStudent.password = password1;
+				}
+				else {
+					cout << "password not matching, please try again!!!" << endl;
+				}
+			} while (password1 != password2);
+
+			students.push_back(newStudent); // Add new student
+
+			cout << "Registration successful!" << endl;
+
+			backToMenu();
+
+			cin >> option;
+
+			if (option == 1) {
+				goto begin;
+			}
+			else {
+				cout << "Thank you";
+			}
+
+	
+	}
+	else {
+		cout << "Good Bye!!!" << endl;
+	}
+
+	return 0;
 }
-// Admin Login-----Pearl code task
-else if(option == 2){
 
-}
-// Student Registration page-----Felipe code task
-    /* insert #include <limits> at top **********************
-     insert this under main function************
-      Student students[MAX_STUDENTS];  // store students
-    int studentCount = 0;            // counter for registered students
-    *********************************************************
-*/
-    else if (option == 3) {
-     
-            Student newStudent;
-            cout << "First name: ";
-            cin >> newStudent.firstName;
-            cout << "Last name: ";
-            cin >> newStudent.lastName;
-            cout << "Age: ";
-            cin >> newStudent.age;
-            cout << "Email: ";
-            cin >> newStudent.email;
-            cout << "Phone number: ";
-            cin >> newStudent.phoneNum;
-            cout << "Home address: ";
-            cin >> newStudent.homeAddr;
 
-            // nationality with validation
-            int nationalityOp;
-            bool validInput = false;
-            do {
-                cout << "Press 1 for Domestic or 2 for International: ";
-                cin >> nationalityOp;
+// Andrew code task to build back to main menu option 
+void backToMenu() {
 
-                if (cin.fail() || (nationalityOp != 1 && nationalityOp != 2)) {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid option. Please enter 1 for Domestic or 2 for International." << endl;
-                } else {
-                    switch (nationalityOp) {
-                        case 1:
-                            newStudent.nationality = "Domestic";
-                            validInput = true;
-                            cout << "Option selected: Domestic" << endl;
-                            break;
-                        case 2:
-                            newStudent.nationality = "International";
-                            validInput = true;
-                            cout << "Option selected: International" << endl;
-                            break;
-                    }
-                }
-            } while (!validInput);
-
-            // password after valid nationality
-            cout << "Choose your Password: ";
-            cin >> newStudent.password;
-
-            students[studentCount] = newStudent; // Add new student
-            cout << "Registration successful!" << endl;
-
-    }
-    else {
-        cout << "Good Bye!!!" << endl;
-    }
-
-    return 0;
+	cout << "*********************" << endl;
+	cout << "1.Back to Login Menu" << endl;
+	cout << "2.Exit" << endl;
 }
