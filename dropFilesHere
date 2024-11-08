@@ -134,7 +134,7 @@ begin:
 				goto begin;
 			}
 		}
-		cout << "Wrong login email, Bye" << endl;
+		cout << "Incorrect login email or Passowrd" << endl;
 
 		backToMenu();
 
