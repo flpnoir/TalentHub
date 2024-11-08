@@ -107,24 +107,25 @@ begin:
 	cout << "1.Student Login" << endl;
 	cout << "2.Admin Login" << endl;
 	cout << "3.Register as New Student" << endl;
+	cout << "4.Exit" << endl;
 
 	cin >> option;
 	// Student login----Andrew code task
-		if (option == 1) {
+	if (option == 1) {
 		// Student login page
 
 		cout << "Student Login Page" << endl;
 		cout << "**************************" << endl;
 
 		//matching student email address to login
-			 
+
 		cout << "Your Login Email Address: " << endl;
 		cin >> logEmail;
 
 		cout << "Loging Password" << endl;
 		cin >> loginPass;
 
-		for (int i = 0; i <= student.size();i++) {
+		for (int i = 0; i < student.size();i++) {
 			while (logEmail == student[i].email && loginPass == student[i].password) {
 
 				student[i].studentInfo();
@@ -133,6 +134,19 @@ begin:
 				goto begin;
 			}
 		}
+		cout << "Wrong login email, Bye" << endl;
+
+		backToMenu();
+
+		cin >> option;
+
+		if (option == 1) {
+			goto begin;
+		}
+		else {
+			cout << "Thank you";
+		}
+		
 	}
 
 	// Admin Login-----Pearl code task
