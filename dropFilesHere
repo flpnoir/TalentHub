@@ -150,7 +150,41 @@ begin:
 	}
 
 	// Admin Login-----Pearl code task
-	else if (option == 2) {
+	else if (option == 2)
+
+{
+    string userName;
+    string userPassword;
+    int loginAttempt = 0;
+
+    while (loginAttempt < 5)
+    {
+        cout << "Please enter your user name: ";
+        cin >> userName;
+        cout << "Please enter your user password: ";
+        cin >> userPassword;
+
+        if (userName == "admin" && userPassword == "A2v37Y")
+        {
+            cout << "Welcome admin!" << endl;
+            ;
+        }
+        else
+        {
+            cout << "Invalid login attempt. Please try again." << endl;
+            loginAttempt++;
+        }
+    }
+    if (loginAttempt == 5)
+    {
+        cout << "Too many login attempts!";
+        return 0;
+    }
+
+    cout << "Thank you for logging in.";
+}
+return 0;
+void backToMenu();
 
 	}
 
