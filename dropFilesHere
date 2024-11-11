@@ -125,12 +125,12 @@ begin:
 		cout << "Loging Password" << endl;
 		cin >> loginPass;
 
-		for (int i = 0; i < student.size();i++) {
-			while (logEmail == student[i].email && loginPass == student[i].password) {
+		for (int i = 0; i < students.size();i++) {
+			while (logEmail == students[i].email && loginPass == students[i].password) {
 
-				student[i].studentInfo();
+				students[i].studentInfo();
 				//Check with user whether they like to add their first cours
-				student[i].courseInfo();
+				students[i].courseInfo();
 				goto begin;
 			}
 		}
@@ -146,7 +146,7 @@ begin:
 		else {
 			cout << "Thank you";
 		}
-		
+
 	}
 
 	// Admin Login-----Pearl code task
