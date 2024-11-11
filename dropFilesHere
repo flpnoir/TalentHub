@@ -169,6 +169,11 @@ begin:
             cout << "Welcome admin!" << endl;
             ;
         }
+  else if (userName == "admin2" && userPassword == "A2v37Y")
+        {
+            cout << "Welcome admin!" << endl;
+            ;
+        }
         else
         {
             cout << "Invalid login attempt. Please try again." << endl;
