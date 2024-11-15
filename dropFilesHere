@@ -3,6 +3,7 @@
 #include<array>
 #include <limits>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -155,40 +156,105 @@ begin:
 {
     string userName;
     string userPassword;
-    int loginAttempt = 0;
-
-    while (loginAttempt < 5)
     {
-        cout << "Please enter your user name: ";
+        cout << "Please enter your email: ";
         cin >> userName;
         cout << "Please enter your user password: ";
         cin >> userPassword;
 
-        if (userName == "admin" && userPassword == "A2v37Y")
+        if (userName == "admin1@talenthub.com" && userPassword == "Thub15ad")
         {
-            cout << "Welcome admin!" << endl;
-            ;
+            cout << "Welcome admin1!\n";
+            break;
         }
-  else if (userName == "admin2" && userPassword == "A2v37Y")
+        else if (userName == "admin2@talenthub.com" && userPassword == "Thub91am")
         {
-            cout << "Welcome admin!" << endl;
-            ;
+            cout << "Welcome admin2!\n";
+            break;
         }
         else
         {
-            cout << "Invalid login attempt. Please try again." << endl;
-            loginAttempt++;
+            cout << "Invalid login attempt. Please try again.\n" << '\n';
         }
-    }
-    if (loginAttempt == 5)
-    {
-        cout << "Too many login attempts!";
-        return 0;
-    }
-
-    cout << "Thank you for logging in.";
+        
+    cout << "Thank you for logging in.\n";
+   } return 0;
 }
-return 0;
+	// Create a list called International for international students
+	list<string> International = { "Tom", "Ben", "Nicole" };
+
+
+	// Print list elements
+	for (string International : International) {
+		cout << International << "\n";
+	}
+	return 0;
+
+
+	// Create a list called Domestic for Domestic students
+	list<string> Domestic = { "Sean", "Lucy", "Danielle" };
+
+
+	// Print list elements
+	for (string Domestic : Domestic) {
+		cout << Domestic << "\n";
+	}
+	return 0;
+}
+
+{string name;
+std::cout << "Write in the name that you want to search: ";
+std::cin >> name;
+class Student
+{
+public:
+    string First_name;
+    string Last_name;
+    Student(string First_name, string Last_name)
+    {
+        first_name = First_name;
+        last_name = Last_name;
+    }
+};
+
+
+void search_after_student_name(const string& First_name, const std::vector<Student>& students)
+{
+    auto studentIt = std::find_if(std::begin(students), std::end(students), [&First_name](const auto& s)
+        {
+            return s.first_name == First_name;
+        });
+
+
+    if (studentIt == std::end(students))
+        cout << "We couldn't find the name you wrote. Try again" << endl;
+    else //if the "First_name" matches a student:
+    {
+        cout << "info about this student: ";
+        cout << studentIt->first_name << ", "
+            << studentIt->last_name << ", "
+    }
+}
+
+
+int main()
+{
+    SetConsoleCP(1252);
+    SetConsoleOutputCP(1252);
+
+
+    std::vector<Student> students =
+    {
+        Student("Tom", "Smith"),
+        Student("Ben", "Jones"),
+        Student("Nicole", "Williams"),
+        Student("Sean", "Johnson"),
+        Student("Lucy", "Miller")
+        Student("Danielle", "Davis")
+
+    return 0;
+    }
+}
 void backToMenu();
 
 	}
