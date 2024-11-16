@@ -153,39 +153,48 @@ begin:
 	// Admin Login-----Pearl code task
 	else if (option == 2)
 
-{
-    string userName;
-    string userPassword;
-    {
-        cout << "Please enter your email: ";
-        cin >> userName;
-        cout << "Please enter your user password: ";
-        cin >> userPassword;
+	{
 
-        if (userName == "admin1@talenthub.com" && userPassword == "Thub15ad")
-        {
-            cout << "Welcome admin1!\n";
-            break;
-        }
-        else if (userName == "admin2@talenthub.com" && userPassword == "Thub91am")
-        {
-            cout << "Welcome admin2!\n";
-            break;
-        }
-        else
-        {
-            cout << "Invalid login attempt. Please try again.\n" << '\n';
-        }
-        
-    cout << "Thank you for logging in.\n";
-   } return 0;
-}
+		cout << "Admin Menu" << endl;
+
+		string userName;
+		string userPassword;
+		{
+			cout << "Please enter your email: ";
+			cin >> userName;
+			cout << "Please enter your user password: ";
+			cin >> userPassword;
+
+			if (userName == "admin1@talenthub.com" && userPassword == "Thub15ad")
+			{
+				cout << "Welcome admin1!\n";
+				break;
+			}
+			else if (userName == "admin2@talenthub.com" && userPassword == "Thub91am")
+			{
+				cout << "Welcome admin2!\n";
+				break;
+			}
+			else
+			{
+				cout << "Invalid login attempt. Please try again.\n" << '\n';
+			}
+			cout << "Thank you for logging in.\n";
+
+			cout << "*********************************" << endl;
+			cout << "1. Course management" << endl;
+			cout << "2. Student List" << endl;
+
+			cin >> option;
+
+			if (option == 1) {
+			}
 	// Create a list called International for international students
 	list<string> International = { "Tom", "Ben", "Nicole" };
 
 
 	// Print list elements
-	for (string International : International) {
+	for (string new.Student, nationality : International) {
 		cout << International << "\n";
 	}
 	return 0;
@@ -196,7 +205,7 @@ begin:
 
 
 	// Print list elements
-	for (string Domestic : Domestic) {
+	for (string new.Student, nationality : Domestic) {
 		cout << Domestic << "\n";
 	}
 	return 0;
@@ -208,56 +217,79 @@ std::cin >> name;
 class Student
 {
 public:
-    string First_name;
-    string Last_name;
-    Student(string First_name, string Last_name)
-    {
-        first_name = First_name;
-        last_name = Last_name;
-    }
+	string First_name;
+	string Last_name;
+	Student(string First_name, string Last_name)
+	{
+		first_name = First_name;
+		last_name = Last_name;
+	}
 };
 
 
 void search_after_student_name(const string& First_name, const std::vector<Student>& students)
 {
-    auto studentIt = std::find_if(std::begin(students), std::end(students), [&First_name](const auto& s)
-        {
-            return s.first_name == First_name;
-        });
+	auto studentIt = std::find_if(std::begin(students), std::end(students), [&First_name](const auto& s)
+		{
+			return s.first_name == First_name;
+		});
 
 
-    if (studentIt == std::end(students))
-        cout << "We couldn't find the name you wrote. Try again" << endl;
-    else //if the "First_name" matches a student:
-    {
-        cout << "info about this student: ";
-        cout << studentIt->first_name << ", "
-            << studentIt->last_name << ", "
-    }
+	if (studentIt == std::end(students))
+		cout << "We couldn't find the name. Try again" << endl;
+	else //if the "First_name" matches a student:
+	{
+		cout << "info about this student: ";
+		cout << studentIt->first_name << ", "
+			<< studentIt->last_name << ", "
+	}
 }
 
 
 int main()
 {
-    SetConsoleCP(1252);
-    SetConsoleOutputCP(1252);
+	SetConsoleCP(1252);
+	SetConsoleOutputCP(1252);
 
 
-    std::vector<Student> students =
-    {
-        Student("Tom", "Smith"),
-        Student("Ben", "Jones"),
-        Student("Nicole", "Williams"),
-        Student("Sean", "Johnson"),
-        Student("Lucy", "Miller")
-        Student("Danielle", "Davis")
+	std::vector<Student> students =
+	{
+		Student("Tom", "Smith"),
+		Student("Ben", "Jones"),
+		Student("Nicole", "Williams"),
+		Student("Sean", "Johnson"),
+		Student("Lucy", "Miller")
+		Student("Danielle", "Davis")
 
-    return 0;
-    }
+	return 0;
+	}
 }
 void backToMenu();
 
-	}
+}
+//MENU
+cout << "6. Student Course Editing" << endl;
+
+case: {
+	string studentEmail;
+	cout << "Enter student's email to remove: ";
+	cin >> studentEmail;
+	bool emailfound = false; // (false by def)
+
+	for (int f = 0; f < studentCount; f++) {
+		if (students[f].email == studentEmail) {
+			found = true;
+			if (students[f].courseCount == 0) { // double check students array if student is enroled (if 0, means not found)
+				cout << "The student is not enroled in any courses." << endl;
+				break;
+			}
+			cout << "Courses enrolled by the student:" << endl;
+			for (int g = 0; g < students[f].courseCount; g++) { // using 'g' as the loop variable; Student FOUND :D; students[f].courseCount how many courses is enroled atm
+				cout << g + 1 << ". " << students[f].course[g] << endl; // will print the numbers of courses 1, 2, 3
+			}
+			int courseIndex; // admin input
+			cout << "Enter the course number to remove (-* " << students[f].courseCount << "): ";
+			cin >> courseIndex; // admin will insert number 1, 2, 3 if available and choose which course to be removed
 
 
 	// Student Registration page-----Felipe code task
